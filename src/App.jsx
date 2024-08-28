@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./App.css";
 import Introduction from "./components/introduction";
 import Quiz from "./components/Quiz";
@@ -11,10 +12,15 @@ function App() {
   };
 
   return (
-    <>
-      <Introduction startQuiz={startQuiz} />
-      <Quiz />
-    </>
+    <div className="App">
+
+       {!isQuizStarted ? (
+        <Introduction startQuiz={startQuiz} />
+      ) : (
+        // Quiz başladıysa Quiz componentini göster
+        <Quiz />
+      )}
+    </div>
   );
 }
 
