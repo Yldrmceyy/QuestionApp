@@ -31,7 +31,26 @@ export default function Quiz() {
     <div className="quiz-content">
       <h2>{currentQuestion.question}</h2>
       <img src={currentQuestion.media} alt="Question media" />
-      <div className="options"></div>
+      <div className="options">
+        {currentQuestion.options.map((option) => (
+          <button
+            key={option}
+            onClick={() => handleOptionClick(option)}
+            disabled={!!userSelected || timeLeft > 26}
+            className={
+              userSelected
+                ? option === currentQuestion.answer
+                  ? "correct"
+                  : option === userSelected
+                  ? "incorrect"
+                  : ""
+                : ""
+            }
+          >
+            {option}
+          </button>
+        ))}
+      </div>
     </div>
   );
 }
