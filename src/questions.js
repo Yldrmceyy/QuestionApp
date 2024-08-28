@@ -1,5 +1,5 @@
-/* eslint-disable no-unused-vars */
-const questions = [
+
+const QUESTIONS  = [
   {
     question: "Çin Seddini oluşturan taşlar birbirine ne ile tutturulmuştur?",
     options: ["Bambu Harcı", "Anne Duası", "Pirinç Unu", "Noodle"],
@@ -71,3 +71,4 @@ const questions = [
     media: "fobi.jpg",
   },
 ];
+export default QUESTIONS ;
