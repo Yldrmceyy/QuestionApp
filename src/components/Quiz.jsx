@@ -4,7 +4,7 @@ import QUESTIONS from "../questions";
 export default function Quiz({ onQuizEnd }) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [userSelected, setUserSelected] = useState(null);
-  const [timeLeft, setTimeLeft] = useState(5);
+  const [timeLeft, setTimeLeft] = useState(30);
   const [showOptions, setShowOptions] = useState(false);
   const [score, setScore] = useState(0);
   const [answers, setAnswers] = useState([]);
@@ -12,9 +12,10 @@ export default function Quiz({ onQuizEnd }) {
   const currentQuestion = QUESTIONS[currentQuestionIndex];
 
   useEffect(() => {
+    // Seçeneklerin 4 saniye sonra görünür hale gelmesini sağlıyoruz.
     const optionsTimer = setTimeout(() => {
       setShowOptions(true);
-    }, 0);
+    }, 4000);
 
     const timer = setInterval(() => {
       setTimeLeft((prevTime) => {
