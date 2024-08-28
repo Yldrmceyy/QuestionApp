@@ -40,3 +40,38 @@ body {
   text-align: center;
 }
 
+.correct {
+  background-color: green;
+  color: white;
+}
+
+.incorrect {
+  background-color: red;
+  color: white;
+}
+
+.App {
+  text-align: center;
+}
+
+.result-container {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.result-container h2 {
+  margin-bottom: 20px;
+}
+
+.result-container ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.result-container li {
+  margin: 10px 0;
+}

@@ -10,12 +10,12 @@ function App() {
 
   const startQuiz = () => {
     setIsQuizStarted(true);
-    setQuizResults(null); // Quiz tekrar başlatılırsa sonuçları sıfırlamak için
+    setQuizResults(null); 
   };
 
   const handleQuizEnd = (score, answers) => {
     setQuizResults({ correct: score, total: answers.length, answers });
-    setIsQuizStarted(false); // Quiz bittiğinde quiz'i durdur
+    setIsQuizStarted(false); 
   };
 
   return (
