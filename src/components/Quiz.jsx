@@ -14,6 +14,13 @@ export default function Quiz() {
   // useEffect(()=>{
   //   if()
   // })
+  const handleOptionClick = (option) => {
+    setUserSelected(option);
+    if (option === currentQuestion.answer) {
+      setScore(score + 1);
+    }
+    setTimeout(() => handleNextQuestion(), 4000);
+  };
 
   const handleNextQuestion = () => {
     setUserSelected(null);
