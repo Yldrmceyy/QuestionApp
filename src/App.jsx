@@ -17,7 +17,6 @@ function App() {
        {!isQuizStarted ? (
         <Introduction startQuiz={startQuiz} />
       ) : (
-        // Quiz başladıysa Quiz componentini göster
         <Quiz />
       )}
     </div>
