@@ -12,7 +12,6 @@ export default function Quiz({ onQuizEnd }) {
   const currentQuestion = QUESTIONS[currentQuestionIndex];
 
   useEffect(() => {
-    // Seçeneklerin 4 saniye sonra görünür hale gelmesini sağlıyoruz.
     const optionsTimer = setTimeout(() => {
       setShowOptions(true);
     }, 4000);
@@ -21,7 +20,7 @@ export default function Quiz({ onQuizEnd }) {
       setTimeLeft((prevTime) => {
         if (prevTime <= 1) {
           clearInterval(timer);
-          handleNextQuestion();
+          handleNextQuestion(); 
           return 0;
         }
         return prevTime - 1;
@@ -35,29 +34,39 @@ export default function Quiz({ onQuizEnd }) {
   }, [currentQuestionIndex]);
 
   const handleOptionClick = (option) => {
-    setUserSelected(option);
-    setAnswers([
-      ...answers,
-      {
-        question: currentQuestion.question,
-        correctAnswer: currentQuestion.answer,
-        selectedAnswer: option,
-      },
-    ]);
+    if (userSelected === null) {
+      setUserSelected(option);
 
-    if (option === currentQuestion.answer) {
-      setScore(score + 1);
+    
+      const isCorrect = option === currentQuestion.answer;
+      if (isCorrect) {
+        setScore(score + 1);
+      }
+
+      setAnswers((prevAnswers) => [
+        ...prevAnswers,
+        {
+          question: currentQuestion.question,
+          correctAnswer: currentQuestion.answer,
+          selectedAnswer: option,
+          isCorrect,
+        },
+      ]);
+
+      
+      setTimeout(() => handleNextQuestion(), 1000);
     }
-    setTimeout(() => handleNextQuestion(), 1000);
   };
 
   const handleNextQuestion = () => {
     setUserSelected(null);
     setShowOptions(false);
     setTimeLeft(30);
+
     if (currentQuestionIndex < QUESTIONS.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else {
+      
       onQuizEnd(score, answers);
     }
   };

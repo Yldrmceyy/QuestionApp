@@ -19,7 +19,7 @@ export default function Result({ correct, total, answers }) {
           <li key={index}>
             <span>{index + 1}. Soru:</span> <strong>Doğru Cevap:</strong>{" "}
             {answer.correctAnswer}, <strong>Verilen Cevap:</strong>{" "}
-            {answer.selectedAnswer ? answer.selectedAnswer : "Cevap Verilmedi"}
+            {answer.selectedAnswer}
           </li>
         ))}
       </ul>
