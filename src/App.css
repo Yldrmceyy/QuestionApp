@@ -22,6 +22,8 @@ body {
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -42,12 +44,12 @@ body {
 }
 
 .quiz-content img {
-  width: 600px;
+  max-width: 100%;
   height: auto;
 }
 
 button {
-  background-color: #9082a3;;
+  background-color: #9082a3;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -95,3 +97,5 @@ button {
 .result-container li {
   margin: 10px 0;
 }
+
+
